@@ -1,0 +1,330 @@
+/* =============================================
+   CSS - Le KFé
+  
+/* =============================================
+   1. RESET
+   On enlève les marges et espacements par défaut
+   ============================================= */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+footer, header, nav, section {
+  display: block;
+}
+
+
+/* =============================================
+   2. STYLES GÉNÉRAUX
+   Ces règles s'appliquent à toutes les tailles
+   ============================================= */
+body {
+  background: url("./files/texture_fond.png");
+  color: #47201b;
+  font-family: Georgia, "Times New Roman", serif;
+  margin: 0 auto; /* Centre la page */
+}
+
+iframe {
+  border-width: 0px;
+}
+
+a, a:visited {
+  color: #75bc27;
+}
+
+p {
+  margin: 8px 4px;
+  text-align: justify; /* Les paragraphes restent justifiés */
+}
+
+h1 {
+  font-size: 28px;
+  border: solid #594846;
+  border-width: 2px 0;
+  padding: 4px;
+  text-align: center;
+  font-variant: small-caps;
+}
+
+h2 {
+  text-align: center;
+  font-variant: small-caps;
+}
+
+dl {
+  margin: 0 8px;
+}
+
+dt {
+  font-weight: bold;
+  margin: 8px 16px 8px 0;
+  border-bottom: 1px dashed #7b96bc;
+}
+
+.intro {
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  margin: 8px;
+  font-weight: bold;
+}
+
+.navigation {
+  font-size: 18px;
+  background-color: #ae5411;
+  border-bottom: 2px solid #594846;
+}
+
+.navigation ul li {
+  text-align: center;
+  display: block;
+  float: left;
+  padding: 3px 0;
+}
+
+.navigation li a {
+  color: #f9f3e9;
+  font-variant: small-caps;
+  text-decoration: none;
+}
+
+/* Cache le texte du header hors écran */
+.header p {
+  margin-left: -1000px;
+}
+
+#points ul {
+  list-style-image: url('./files/point.png');
+  margin: 8px 0 16px 8px;
+  padding-left: 16px;
+}
+
+#points ul li {
+  margin: 8px 16px;
+}
+
+.footer {
+  background-color: #ae5411;
+  color: #fff2d4;
+  margin: 12px;
+  padding: 12px;
+  font-style: italic;
+}
+
+img {
+  max-width: 100%; /* Rend les images adaptables */
+  height: auto;
+}
+
+
+/* =============================================
+   3. STRUCTURE PRINCIPALE
+   La page devient fluide mais reste limitée à 960px
+   ============================================= */
+body, .header, .navigation, .footer {
+  width: 100%; /* La page prend toute la largeur disponible */
+  max-width: 960px; /* Mais ne dépasse pas 960px */
+}
+
+.header, .navigation, .footer {
+  clear: both;
+}
+
+.colonne {
+  margin: 10px 10px 0 0;
+}
+
+.navigation {
+  min-height: 25px;
+}
+
+.navigation ul li {
+  width: 320px; /* 960 / 3 */
+}
+
+.header {
+  background: url('./files/kfe_logo.png') no-repeat center;
+  height: 200px;
+}
+
+#visit {
+  width: 240px;
+  float: left;
+}
+
+#points {
+  width: 240px;
+  float: right;
+}
+
+#main {
+  margin: 10px 260px 0 250px;
+  width: 460px;
+}
+
+
+/* =============================================
+   4. VERSION MOBILE
+   Règles pour les écrans de 480px ou moins
+   ============================================= */
+@media screen and (max-width: 480px) {
+
+  /* Tous les blocs prennent toute la largeur */
+  body,
+  .header,
+  .navigation,
+  .footer,
+  #visit,
+  #points,
+  #main,
+  .colonne {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    float: none; /* On annule les floats */
+  }
+
+  body {
+    padding-top: 110px; /* Laisse la place au menu fixé */
+    text-align: center; /* Centre le texte général */
+  }
+
+  /* Le menu reste en haut de l'écran */
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 90px; /* Menu plus haut */
+    width: 100%;
+    max-width: 100%;
+    z-index: 1000;
+  }
+
+  /* Les liens du menu passent à la verticale */
+  .navigation ul li {
+    float: none;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  /* Le logo passe sous le menu */
+  .header {
+    background: url('./files/kfe_logo.png') no-repeat center;
+    height: 200px;
+    margin-top: 20px;
+  }
+
+  /* On remet le texte du header à sa place */
+  .header p {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  /* Espace régulier entre les blocs */
+  #visit,
+  #points,
+  #main {
+    margin: 20px auto;
+  }
+
+  /* Centre les titres et les blocs */
+  h1,
+  h2,
+  .colonne,
+  .footer,
+  #visit,
+  #points {
+    text-align: center;
+  }
+
+  /* Ajoute un peu d'espace avant les h2 */
+  h2 {
+    margin-top: 24px;
+  }
+
+  /* Les paragraphes restent justifiés */
+  p {
+    text-align: justify;
+  }
+
+  /* Le bloc visit est centré */
+  #visit,
+  #visit dl,
+  #visit dt,
+  #visit dd,
+  #visit p {
+    text-align: center;
+  }
+
+  /* On enlève les marges des dt */
+  dt {
+    margin: 0;
+  }
+
+  .colonne {
+    display: block;
+  }
+
+  .footer {
+    margin: 8px 0; /* Réduit les marges du footer sur mobile */
+  }
+}
+
+
+/* =============================================
+   5. VERSION IMPRESSION
+   Mise en page simple pour le papier
+   ============================================= */
+@media print {
+
+  body {
+    background: #ffffff; /* Fond blanc */
+    color: #000000; /* Texte noir */
+    width: 100%;
+    max-width: 100%;
+    font-size: 12pt;
+  }
+
+  /* Le menu et le footer sont inutiles sur papier */
+  .navigation,
+  .footer {
+    display: none;
+  }
+
+  /* On enlève l'image de fond du header */
+  .header {
+    background: none;
+    height: auto;
+  }
+
+  /* Le texte du header redevient visible */
+  .header p {
+    margin-left: 0;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  /* Tout repasse en une seule colonne */
+  #visit,
+  #points,
+  #main,
+  .colonne {
+    float: none;
+    width: 100%;
+    margin: 0 0 15px 0;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+}
